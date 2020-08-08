@@ -1,0 +1,2 @@
+# autoDomainDnsInLan
+局域网内自动获取公网IP，实现阿里云下的域名自动变更解析
