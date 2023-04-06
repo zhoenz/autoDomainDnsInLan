@@ -3,6 +3,7 @@ package com.wxhg.test_domain_auto_describe;
 import com.wxhg.test_domain_auto_describe.utils.AliyunUtils;
 import com.wxhg.test_domain_auto_describe.utils.TpLinkClient;
 import com.wxhg.test_domain_auto_describe.utils.TpLinkClientZZ;
+import com.wxhg.test_domain_auto_describe.utils.TpLinkClientZZNew;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 public class Application {
 
     public static void main(String[] args) throws IOException {
-        String ip = TpLinkClientZZ.getPublicIp();
+        String ip = TpLinkClientZZNew.getPublicIp();
         AliyunUtils.getHostDescribeList(1L,ip);
         AliyunUtils.updateDescribeInfo(ip);
     }
