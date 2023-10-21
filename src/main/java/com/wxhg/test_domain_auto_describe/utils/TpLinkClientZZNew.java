@@ -280,7 +280,26 @@ public class TpLinkClientZZNew {
 
 
     public static void main(String[] args) {
-//        sid = "55a46273d9093238b48ed50598871faab2669b0478db058459c5c6502a06d19b";
+//        sid = "274571b249ff8255fc9c37fdd2db50762ed35404fe7cb479162b74e86c113db9";
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        Request request = new Request.Builder()
+                .url("http://192.168.10.1/CU.html")
+                .method("GET", null)
+                .addHeader("Connection", "keep-alive")
+                .addHeader("Pragma", "no-cache")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Upgrade-Insecure-Requests", "1")
+                .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36")
+                .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                .addHeader("Accept-Language", "zh,zh-CN;q=0.9,en;q=0.8")
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         checkNATData();
     }
 }

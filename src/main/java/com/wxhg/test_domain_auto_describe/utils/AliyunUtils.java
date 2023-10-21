@@ -45,15 +45,16 @@ public class AliyunUtils {
         try {
             DescribeDomainRecordsResponse response = client.getAcsResponse(request);
             List<DescribeDomainRecordsResponse.Record> list =
-                    response.getDomainRecords().stream().filter(a -> "testserver".equals(a.getRR())
+                    response.getDomainRecords().stream().filter(a -> "A".equals(a.getType())
+                                    && ("testserver".equals(a.getRR())
                                     || "hkrt1".equals(a.getRR())
                                     || "testbrandpay1".equals(a.getRR())
                                     || "dsy-test".equals(a.getRR())
                                     || "dsy-agent-test".equals(a.getRR())
                                     || "dsy-admin-test".equals(a.getRR())
                                     || "xxyl-admin".equals(a.getRR())
-                                    || (a.getRR()!=null  && a.getRR().contains("xxyl-"))
-                            )
+                                    || (a.getRR() != null && a.getRR().contains("xxyl-"))
+                            ))
                             .collect(Collectors.toList());
             if (list.size() > 0) {
                 list.forEach(a -> {
